@@ -40,9 +40,16 @@ export async function GET() {
     return NextResponse.json(result);
 
   } catch (error) {
+
+    console.log(
+      "Dashboard API Error:",
+      error
+    );
+
     return NextResponse.json(
       {
-        message: error.message
+        message: error.message,
+        stack: error.stack
       },
       { status: 500 }
     );
